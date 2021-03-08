@@ -119,3 +119,7 @@ table tbody tr:hover {
 td {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
+tr td button {
+    font-size: 6pt;
+    width: fit-content;
+    }
