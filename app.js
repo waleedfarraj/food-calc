@@ -12,8 +12,6 @@ this.qt = qt
 this.price = price * qt
 arr.push(this)
 }
-
-
 form.addEventListener('submit',ordering)
 function ordering(event){
   event.preventDefault()
@@ -33,7 +31,6 @@ firstRowMaker()
 content(deliveryCost)
 
 } 
-
 function firstRowMaker(){
     table.innerHTML=""
   let row = document.createElement('tr')
@@ -42,11 +39,17 @@ function firstRowMaker(){
   let seconedCell = document.createElement('th')
   seconedCell.textContent='Share'
   let thirdCell = document.createElement('th')
-  thirdCell.textContent = 'OOPS!'
+  thirdCell.textContent = 'Order'
+  let thirdCellPoint5 = document.createElement('th')
+  thirdCellPoint5.textContent = 'Qty'
+  let fourthCell = document.createElement('th')
+  fourthCell.textContent = 'OOPS!'
   row.appendChild(firstCell)
   row.appendChild(seconedCell)
   row.appendChild(thirdCell)
-table.appendChild(row)
+  row.appendChild(thirdCellPoint5)
+  row.appendChild(fourthCell)
+ table.appendChild(row)
 derTisch.appendChild(table)
 }
 function content(deliveryCost){
@@ -62,12 +65,18 @@ for(var x = 0 ; x < arr.length ; x++){
   let seconedCell = document.createElement('td')
   seconedCell.textContent=sec
   let thirdCell = document.createElement('td')
+  thirdCell.textContent= arr[x].item
+  let thirdCellPoint5 = document.createElement('td')
+  thirdCellPoint5.textContent = arr[x].qt
+  let fourthCell = document.createElement('td')
   let btn = document.createElement('button')
   btn.innerHTML = 'Cancel'
  row.appendChild(firstCell)
  row.appendChild(seconedCell)
  row.appendChild(thirdCell)
- thirdCell.appendChild(btn)
+ row.appendChild(thirdCellPoint5)
+ row.appendChild(fourthCell)
+ fourthCell.appendChild(btn)
  btn.onclick = removeOrder
  tbod.appendChild(row)
 }
@@ -94,7 +103,6 @@ function doMath(deliveryFee){
         console.log({deliveryCost})
         return deliveryCost
 }
-
 function removeOrder(x){
     console.log('working')
     let rowId = x.path[2].id
