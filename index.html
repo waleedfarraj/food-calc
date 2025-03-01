@@ -3,36 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asac Order Calculator</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <title>ASAC Order Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lobster&display=swap" rel="stylesheet">
 </head>
-<body class="bg">
- 
-
- <h1> ASAC Order Calculator</h1>
- <section >
-  <form id="form" action="">
-  <label for="del">Delievery fee </label>
-<input type="number"  name="fee" >
-<br/>
-  <label for="name">Name</label>
-<input type="string"  name="name" >
-<br/>
- <label for="del">Order </label>
-<input type="string"  name="order" >
- <br/>
- <label for="del">Quantity </label>
-<input type="number" step="any"  name="one">
-<br/>
- <label for="del"> Price </label>
-<input type="number"  step="any" name="money" >
-<br/>
-<button type="submit">Place Order</button>
-
-</form>
-<div id="result" ></div>
-</section>
-<script src="app.js"></script>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-utensils"></i> ASAC Order Calculator</h1>
+      <p class="subtitle">Split your food order costs with friends easily</p>
+    </header>
+    
+    <main>
+      <div class="card form-card">
+        <div class="card-header">
+          <h2>Add New Order</h2>
+        </div>
+        <div class="card-body">
+          <form id="orderForm">
+            <div class="form-group">
+              <label for="fee">
+                <i class="fas fa-truck"></i> Delivery Fee
+              </label>
+              <div class="input-with-icon">
+                <span class="currency-symbol">$</span>
+                <input type="number" id="fee" name="fee" min="0" step="0.01" placeholder="0.00">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="name">
+                <i class="fas fa-user"></i> Name
+              </label>
+              <input type="text" id="name" name="name" placeholder="Who ordered?" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="order">
+                <i class="fas fa-hamburger"></i> Food Item
+              </label>
+              <input type="text" id="order" name="order" placeholder="What did they order?" required>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group half">
+                <label for="quantity">
+                  <i class="fas fa-sort-amount-up"></i> Quantity
+                </label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+              </div>
+              
+              <div class="form-group half">
+                <label for="price">
+                  <i class="fas fa-tag"></i> Unit Price
+                </label>
+                <div class="input-with-icon">
+                  <span class="currency-symbol">$</span>
+                  <input type="number" id="price" name="price" min="0" step="0.01" placeholder="0.00" required>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-plus-circle"></i> Add Order
+              </button>
+              <button type="reset" class="btn btn-secondary">
+                <i class="fas fa-times-circle"></i> Clear
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+      <div class="card results-card">
+        <div class="card-header">
+          <h2>Orders Summary</h2>
+          <div class="order-total">
+            Total: $<span id="totalAmount">0.00</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div id="orderSummary" class="hidden">
+            <div class="summary-text">
+              <p><i class="fas fa-info-circle"></i> Each person pays their order cost plus an equal portion of the delivery fee.</p>
+            </div>
+          </div>
+          <div id="result"></div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <p>&copy; 2025 ASAC Order Calculator | MIT License</p>
+    </footer>
+  </div>
+  
+  <script src="app.js"></script>
 </body>
 </html>
