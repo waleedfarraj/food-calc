@@ -1,0 +1,28 @@
+{
+  "name": "food-calc",
+  "version": "1.0.0",
+  "description": "A calculator for splitting food order costs among friends",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "lite-server",
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/food-calc.git"
+  },
+  "keywords": [
+    "food",
+    "calculator",
+    "order",
+    "split",
+    "cost"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "lite-server": "^2.6.1",
+    "typescript": "^5.2.2"
+  }
+}
